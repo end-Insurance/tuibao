@@ -56,7 +56,7 @@
               <li class="li_2">
                  <ul class="li_lu2">
                   <li class="li2_li2">严格保密制度</li>
-                  <li class="li2_li1">极速高效,退保概率搞到98%</li>
+                  <li class="li2_li1">极速高效,退保完成率高达98%</li>
                 </ul>
               </li>
             </ul>
@@ -68,7 +68,12 @@
           <div class="eng">Scope of business</div>
         </div>
         <div class="section_inner">
-          帮助用户及时止损,客户后知后觉,被诱导购买各种类型保险
+          <ul class="business">
+            <li v-for="(item,index) in business" :key="index">
+              {{item}}
+            </li>
+          </ul>
+         
         </div>
       </div>
       <div class="section_five">
@@ -78,7 +83,13 @@
           
         </div>
         <div class="section_inner">
-          自动化评估退保->资料录入->大数据支持帮助用户加速退保业务->完成协议->退保完成
+          <div v-for="(item,index) in insurance_flow" :key="index" class="flow_box">
+            <div class="box">
+               <a-icon :type="item.icon" class="d_icon"/>
+              <div class="inner">{{item.text}}</div>
+            </div>
+           
+          </div>
         </div>
       </div>
     </div>
@@ -105,6 +116,37 @@ export default {
         {
           type: "select"
         }
+      ],
+      insurance_flow:[//业务范围
+      {
+        text:'自动化评估退保概率',
+        icon:'pie-chart'
+      },
+      {
+        text:'资料填写录入',
+        icon:'hdd'
+      },
+      {
+        text:'完成协议',
+        icon:'edit'
+      },
+      {
+        text:'大数据支持帮助用户加速退保',
+        icon:'table'
+      },
+      {
+        text:'完成退保',
+        icon:'lock'
+      },
+
+      ],
+      business:[ //业务范围
+        '帮助购买保险用户及时止损,全额退被诱导购买各种类型保险',
+        '我们不接受恶意投诉,更不接受恶意退保!!!',
+        '销售误导/诱导客户购买保险产品',
+        '夸大保险产品',
+        '保险产品欺诈',
+        '隐瞒产品真相'
       ],
       insurance_klg: [
         //保险知识
